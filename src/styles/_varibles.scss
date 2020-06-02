@@ -1,0 +1,66 @@
+$xs: 600px;
+$sm: 960px;
+$md: 1280px;
+$lg: 1920px;
+
+@font-face {
+  font-family: "standard";
+  src: url('../assets/fonts/Poppins-Regular.ttf');
+}
+@font-face {
+  font-family: "medium";
+  src: url('../assets/fonts/Poppins-Medium.ttf');
+}
+@font-face {
+  font-family: "semi-bold";
+  src: url('../assets/fonts/Poppins-SemiBold.ttf');
+}
+@font-face {
+  font-family: "bold";
+  src: url('../assets/fonts/Poppins-Bold.ttf');
+}
+
+
+$grey : #282828;
+$black: black;
+//colors one
+$blue: #3500D3;
+$blue-dark: #240090;
+$blue-darker: #190061;
+$blue-black: #0C0032;
+$white : white;
+
+//colors two
+$blacklike: #0B0C10;
+$greylike: #1F2833;
+$greylight: #C5C6C7;
+$lightblue: #66FCF1;
+$darkblue: #45A29E;
+
+
+@mixin header-font {
+  font-size: 2.5em;
+  font-family: "bold";
+  letter-spacing: 10px;
+}
+
+@mixin small-caption {
+  font-size: 0.8em;
+  font-family: "bold";
+  letter-spacing: 5px;
+}
+
+@mixin body-text {
+  font-size: 1em;
+  font-family: "medium";
+  letter-spacing: 3px;
+}
+
+@mixin button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+  //$box-shadow: 0px 3px 10px grey;
+

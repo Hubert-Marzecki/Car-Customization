@@ -1,0 +1,142 @@
+{
+  "models": [
+    {
+      "name": "Spider",
+      "body": ["cabriolet"],
+      "img": "https://i.picsum.photos/id/1018/300/300.jpg",
+      "engines": [
+         {
+          "name": "tier",
+          "price": 3000
+        },
+         {
+          "name": "v system",
+          "price": 3400
+          }
+      ],
+      "drive": [
+        {
+          "name": "Front-wheel",
+          "price": 1030
+        },
+        {
+          "name": "4X4",
+          "price": 1000
+        },
+      {
+          "name": "Rear-wheel",
+          "price": 900
+        }
+      ],
+      "fuel": [
+        {
+          "name": "gasoline",
+          "price": 200
+        },
+      {
+          "name": "diesel",
+          "price": 300
+        }
+      ]
+
+    },
+    {
+      "name": "MiTo",
+      "body": ["hatchback", "sedan"],
+      "img": "https://i.picsum.photos/id/1018/300/300.jpg",
+      "engines": [
+        {
+          "name": "tier",
+          "price": 3000
+        }
+      ],
+      "drive": [
+        {
+          "name": "Front-wheel",
+          "price": 1030
+        }
+      ],
+      "fuel": [
+        {
+          "name": "gasoline",
+          "price": 400
+        },
+        {
+          "name": "diesel",
+          "price": 300
+        },
+        {
+          "name": "gasoline/gas",
+          "price": 300
+        }
+      ]
+    },
+    {
+      "name": "Brera",
+      "body": ["cabriolet", "sedan"],
+      "img": "https://i.picsum.photos/id/1018/300/300.jpg",
+      "engines": [
+        {
+          "name": "tier",
+          "price": 3000
+        },
+        {
+          "name": "v system",
+          "price": 3400
+        }
+      ],
+      "drive": [
+        {
+          "name": "Front-wheel",
+          "price": 1030
+        },
+        {
+          "name": "4X4",
+          "price": 1000
+        }
+      ],
+      "fuel": [
+        {
+          "name": "gasoline",
+          "price": 400
+        },
+        {
+          "name": "diesel",
+          "price": 300
+        }
+      ]
+
+    },
+    {
+      "name": "Hatchback",
+      "body": ["GTV"],
+      "img": "https://i.picsum.photos/id/1018/300/300.jpg",
+      "engines": [
+        {
+          "name": "tier",
+          "price": 3000
+        },
+        {
+          "name": "v system",
+          "price": 3400
+        }
+      ],
+      "drive": [
+        {
+          "name": "Front-wheel",
+          "price": 1030
+        },
+        {
+          "name": "4X4",
+          "price": 1000
+        }
+      ],
+      "fuel": [
+        {
+          "name": "gasoline",
+          "price": 400
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+@import "src/styles/varibles";
+
+.small__button {
+  background-color: $blue-dark;
+  color: white;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 1.2em;
+  border-radius: 5px;
+  padding: 10px 15px ;
+  margin: 0.5em 0.5em 0 1em;
+}
