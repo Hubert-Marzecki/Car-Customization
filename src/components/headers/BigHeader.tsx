@@ -1,7 +1,7 @@
 import React from "react";
-import "./_bigText.scss";
+import "./header.scss";
 
-export function BigText(props: {text:string, className:string}) :JSX.Element{
+export function BigHeader(props: { text: string; className: string }) :JSX.Element{
     return (
         <h1 className={props.className}>
             {props.text}
