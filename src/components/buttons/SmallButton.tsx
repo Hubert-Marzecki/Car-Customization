@@ -1,11 +1,11 @@
 import React from 'react';
 import "./small_button.scss"
-import finalCarSlice from "../../app/slices/finalCarSlice";
-import {useDispatch} from "react-redux";
+import finalCarSlice, {setFinalCar} from "../../app/slices/finalCarSlice";
+import {useDispatch, useSelector} from "react-redux";
 
-export function SmallButton (props:{text:string, className:string, pickModule: any[]   } ) : JSX.Element  {
+export function SmallButton (props:{value:string, className:string, pickModule: any[]   } ) : JSX.Element  {
 const dispatch = useDispatch();
-
+const finalCar = useSelector(setFinalCar)
 
 
 
@@ -16,15 +16,18 @@ const dispatch = useDispatch();
             function setValues(x:string) {
                 switch (x) {
                     case "engine":
-                        dispatch(finalCarSlice.actions.setFinalEngines({engine: item.name, cost: item.price}))
+                        dispatch(finalCarSlice.actions.setFinalEngine({engine:item.name, engineCost:item.price}))
+                        // można wyrzucić do finalEngine etc
+                        dispatch(finalCarSlice.actions.setFinalCost())
                         break;
                     case "drive":
-                        dispatch(finalCarSlice.actions.setFinalDrive({drive: item.name,  cost: item.price}))
+                        dispatch(finalCarSlice.actions.setFinalDrive({drive: item.name,  driveCost: item.price}))
+                        dispatch(finalCarSlice.actions.setFinalCost())
                         break;
                     case "fuel":
-                        dispatch(finalCarSlice.actions.setFinalFuel({fuel: item.name,  cost: item.price}))
+                        dispatch(finalCarSlice.actions.setFinalFuel({fuel:item.name,  fuelCost: item.price}));
+                        dispatch(finalCarSlice.actions.setFinalCost())
                         break;
-
                 }
             }
 
@@ -34,7 +37,7 @@ const dispatch = useDispatch();
                         key={item.name}
                         className={props.className}
                         value={item.name}
-                        onClick={() => setValues(props.text)}
+                        onClick={() => setValues(props.value)}
                     >
                         {item.name}
 

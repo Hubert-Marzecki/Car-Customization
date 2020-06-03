@@ -1,7 +1,13 @@
 @import "components/carCard/carCard";
 @import "styles/varibles";
-//@import "components/bigText/bigText";
 
 //Cool buttons
 //https://codepen.io/kevinmiranda/pen/XwaopR
 
+.button__center{
+  justify-content: center;
+  text-align: center;
+}
+.App{
+  padding-bottom: 10em;
+}

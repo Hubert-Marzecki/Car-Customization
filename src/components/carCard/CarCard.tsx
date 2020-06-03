@@ -4,6 +4,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {setCar} from "../../app/slices/carSlice";
 import pickedCarSlice from "../../app/slices/pickedCarSlice"
 import finalCarSlice from "../../app/slices/finalCarSlice";
+import {FinalCar} from "../../Model";
 
 export function CarCard  () : JSX.Element  {
     const cars = useSelector(setCar);
@@ -18,13 +19,14 @@ return (
                             className="card"
                             onClick={ () => {
                                 dispatch(pickedCarSlice.actions.setPickedCar(item)) ;
-                                dispatch(finalCarSlice.actions.setFinalName({ name: item.name}))
-                            } }
+                                dispatch(finalCarSlice.actions.setFinalName({ name: item.name}));
+                            //    dispatch(pickedCarSlice.actions.setFinalName(item.name))
+                            }}
                         >
                             <p className="caption">{ item.name}</p>
                             <img
                                 src = {item.img}
-                                className="img"
+                                 className="img"
                                 alt={item.img}
                             />
                         </div>
