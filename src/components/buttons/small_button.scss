@@ -12,3 +12,17 @@
   padding: 10px 15px ;
   margin: 0.5em 0.5em 0 1em;
 }
+.button__wrapper{
+  display: inline-flex;
+  flex-direction: column;
+  align-content: baseline;
+  justify-content: center;
+  width: 200px;
+  margin: 0.5em auto;
+  //border-style: solid;
+  text-align: center;
+
+}
+.button__caption{
+  margin-top: 5px;
+}

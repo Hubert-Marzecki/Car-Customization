@@ -1,14 +1,22 @@
 import React from 'react';
 import "./_carCard.scss"
 import {useDispatch, useSelector} from "react-redux";
-import {setCar} from "../../app/slices/carSlice";
-import pickedCarSlice from "../../app/slices/pickedCarSlice"
+import carSlice, {setCar} from "../../app/slices/carsSlice";
+import pickedCarSlice, {setPickedCar} from "../../app/slices/pickedCarSlice"
 import finalCarSlice from "../../app/slices/finalCarSlice";
 import {FinalCar} from "../../Model";
+import {getFromUrl} from "../../services/ApiClient";
 
 export function CarCard  () : JSX.Element  {
     const cars = useSelector(setCar);
+    const pickedCar = useSelector(setPickedCar)
     const dispatch = useDispatch()
+
+    function loadCar(x:string) {
+        getFromUrl(`http://localhost:3000/models?name=${x}`).then((response) => {
+            dispatch(pickedCarSlice.actions.setPickedCar(response))
+    })}
+
 
 return (
             <div className="cards__container">
@@ -18,9 +26,9 @@ return (
                             key={item.name}
                             className="card"
                             onClick={ () => {
-                                dispatch(pickedCarSlice.actions.setPickedCar(item)) ;
-                                dispatch(finalCarSlice.actions.setFinalName({ name: item.name}));
-                            //    dispatch(pickedCarSlice.actions.setFinalName(item.name))
+                                loadCar(item.name)
+                                dispatch(finalCarSlice.actions.setFinalCostReset())
+
                             }}
                         >
                             <p className="caption">{ item.name}</p>

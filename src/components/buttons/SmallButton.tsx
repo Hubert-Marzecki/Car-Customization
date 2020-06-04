@@ -5,8 +5,6 @@ import {useDispatch, useSelector} from "react-redux";
 
 export function SmallButton (props:{value:string, className:string, pickModule: any[]   } ) : JSX.Element  {
 const dispatch = useDispatch();
-const finalCar = useSelector(setFinalCar)
-
 
 
     return (
@@ -17,7 +15,6 @@ const finalCar = useSelector(setFinalCar)
                 switch (x) {
                     case "engine":
                         dispatch(finalCarSlice.actions.setFinalEngine({engine:item.name, engineCost:item.price}))
-                        // można wyrzucić do finalEngine etc
                         dispatch(finalCarSlice.actions.setFinalCost())
                         break;
                     case "drive":
@@ -32,9 +29,10 @@ const finalCar = useSelector(setFinalCar)
             }
 
                 return (
-
+<div className="button__wrapper"
+     key={item.name}>
                     <button
-                        key={item.name}
+
                         className={props.className}
                         value={item.name}
                         onClick={() => setValues(props.value)}
@@ -42,7 +40,8 @@ const finalCar = useSelector(setFinalCar)
                         {item.name}
 
                     </button>
-
+                <p className="button__caption">  {item.price} PLN</p>
+</div>
                 )
             })
         }

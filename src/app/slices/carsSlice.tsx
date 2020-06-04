@@ -49,6 +49,11 @@ import { createSlice} from "@reduxjs/toolkit";
 // }
 // }
 
+interface CarsModels {
+    name:string,
+    img:string
+}
+
 
 export const car = createSlice({
     name: "car",

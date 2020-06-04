@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import './App.scss';
 import 'semantic-ui-css/semantic.min.css'
 import {getFromUrl} from "./services/ApiClient";
-import carSlice, {setCar} from "./app/slices/carSlice";
+import carSlice, {setCar} from "./app/slices/carsSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {CarCard} from "./components/carCard/CarCard";
 
@@ -10,7 +10,7 @@ import {SmallButton} from "./components/buttons/SmallButton";
 import pickedCarSlice, {setPickedCar} from "./app/slices/pickedCarSlice";
 import finalCarSlice, {setFinalCar} from "./app/slices/finalCarSlice";
 import finalCar from "./app/slices/finalCarSlice";
-import {SideWidget} from "./components/sideWidget/SideWidget";
+import {PriceWidget} from "./components/widget/PriceWidget";
 import {BigHeader} from "./components/headers/BigHeader";
 import {SmallerHeader} from "./components/headers/SmallerHeader";
 
@@ -20,10 +20,12 @@ function App() {
     const finalCar = useSelector(setFinalCar)
 
     useEffect(() => {
-        getFromUrl("http://localhost:3000/models").then(response => {
+        getFromUrl("http://localhost:3000/shortModels").then(response => {
             dispatch(carSlice.actions.setCar(response))
-        })
+        }).catch(alert)
     },[])
+
+
 
 
   return (
@@ -34,19 +36,20 @@ function App() {
         />
         <CarCard />
         <BigHeader
-            text={`Picked Model: ${!pickedCar.name ? "" : pickedCar.name}`}
+            text={`Picked Model: ${pickedCar[0] === undefined ? "" : pickedCar[0]?.name}`}
             className={"big__text big__text--model"}
         />
-        {finalCar.cost != 0 ? <SideWidget/> : 0}
+        {finalCar.cost != 0 ? <PriceWidget/> : ""}
 
 
         <div className="button__center">
+
             <SmallerHeader text="Pick Engines" className={""} />
-        <SmallButton value={"engine"} className={"small__button"} pickModule={pickedCar.engines}  />
-        <h2> Drive </h2>
-        <SmallButton value={"drive"} className={"small__button"} pickModule={pickedCar.drive} />
-        <h2> Fuel </h2>
-        <SmallButton value="fuel" className={"small__button"} pickModule={pickedCar.fuel} />
+        <SmallButton value={"engine"} className={"small__button"} pickModule={pickedCar[0]?.engines}  />
+            <SmallerHeader text="Drive" className={""} />
+        <SmallButton value={"drive"} className={"small__button"} pickModule={pickedCar[0]?.drive} />
+            <SmallerHeader text="Fuel " className={""} />
+        <SmallButton value="fuel" className={"small__button"} pickModule={pickedCar[0]?.fuel} />
         </div>
     </div>
   );

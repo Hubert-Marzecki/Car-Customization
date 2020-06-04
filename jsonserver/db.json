@@ -43,7 +43,7 @@
     {
       "name": "MiTo",
       "body": ["hatchback", "sedan"],
-      "img": "https://i.picsum.photos/id/1018/300/300.jpg",
+      "img": "https://i.picsum.photos/id/118/300/300.jpg",
       "engines": [
         {
           "name": "tier",
@@ -74,7 +74,7 @@
     {
       "name": "Brera",
       "body": ["cabriolet", "sedan"],
-      "img": "https://i.picsum.photos/id/1018/300/300.jpg",
+      "img": "https://i.picsum.photos/id/101/300/300.jpg",
       "engines": [
         {
           "name": "tier",
@@ -110,7 +110,7 @@
     {
       "name": "Hatchback",
       "body": ["GTV"],
-      "img": "https://i.picsum.photos/id/1018/300/300.jpg",
+      "img": "https://i.picsum.photos/id/128/300/300.jpg",
       "engines": [
         {
           "name": "tier",
@@ -137,6 +137,24 @@
           "price": 400
         }
       ]
+    }
+  ],
+  "shortModels" : [
+    {
+      "name" : "Spider",
+      "img": "https://i.picsum.photos/id/1032/300/300.jpg"
+    },
+    {
+      "name" : "MiTo",
+      "img": "https://i.picsum.photos/id/1035/300/300.jpg"
+    },
+    {
+      "name" : "Brera",
+      "img": "https://i.picsum.photos/id/1033/300/300.jpg"
+    },
+    {
+      "name" : "Hatchback",
+      "img": "https://i.picsum.photos/id/102/300/300.jpg"
     }
   ]
 }

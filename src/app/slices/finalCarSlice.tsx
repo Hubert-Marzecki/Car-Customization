@@ -17,27 +17,11 @@ function initialState() :FinalCar {
     }
 }
 
-// wydzielić json na pobieranie samych nazw i img  i pobierać go przy pierwszym fetch
-// 
-
 
 export const finalCar = createSlice({
     name: "finalCar",
     initialState: initialState(),
     reducers:{
-
-            // setFinalName: (state, action) => state.token = action.payload.test,
-
-// setFinalCarInfo: (state:FinalCar, action) => {
-//     state.name = action.payload.name
-//     state.body = action.payload.body
-//     state.engine = action.payload.engine
-//     state.engineCost = action.payload.engineCost
-//     state.fuel = action.payload.fuel
-//     state.fuelCost = action.payload.fuelCost
-//     state.cost = action.payload.cost
-//     console.log(action.payload)
-// },
 
 
         setFinalName: (state:FinalCar, action: {type: string, payload: {name: string}}) => {
@@ -61,12 +45,19 @@ export const finalCar = createSlice({
         setFinalCost: (state:FinalCar) => {
             state.cost = state.engineCost + state.driveCost + state.fuelCost
         },
+        setFinalCostReset: (state:FinalCar) => {
+            state.cost = 0
+            state.engineCost = 0
+            state.driveCost = 0
+            state.fuelCost = 0
+
+        },
 
     }
 })
 export const {
- setFinalBody, setFinalCost,setFinalDrive, setFinalEngine,setFinalFuel,setFinalName
+ setFinalBody, setFinalCost,setFinalDrive, setFinalEngine,setFinalFuel,setFinalName, setFinalCostReset
 } = finalCar.actions;
 
-export const setFinalCar = (state:any) => state.finalCar;
+export const setFinalCar  = (state:any ) => state.finalCar;
 export default finalCar;

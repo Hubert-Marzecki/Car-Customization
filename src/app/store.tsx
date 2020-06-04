@@ -1,6 +1,6 @@
 import {configureStore} from '@reduxjs/toolkit';
 
-import carSlice from './slices/carSlice';
+import carSlice from './slices/carsSlice';
 import pickedCarSlice from "./slices/pickedCarSlice";
 import finalCarSlice from "./slices/finalCarSlice"
 
