@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./_carCard.scss"
 import {useDispatch, useSelector} from "react-redux";
 import carSlice, {setCar} from "../../app/slices/carsSlice";
@@ -6,11 +6,14 @@ import pickedCarSlice, {setPickedCar} from "../../app/slices/pickedCarSlice"
 import finalCarSlice from "../../app/slices/finalCarSlice";
 import {FinalCar} from "../../Model";
 import {getFromUrl} from "../../services/ApiClient";
+import {PaginationButton} from "../buttons/PaginationButton";
 
-export function CarCard  () : JSX.Element  {
+export function CarCard  (props:{offset: number, limit:number}) : JSX.Element  {
     const cars = useSelector(setCar);
     const pickedCar = useSelector(setPickedCar)
     const dispatch = useDispatch()
+
+
 
     function loadCar(x:string) {
         getFromUrl(`http://localhost:3000/models?name=${x}`).then((response) => {
@@ -20,7 +23,7 @@ export function CarCard  () : JSX.Element  {
 
 return (
             <div className="cards__container">
-                {cars.map((item:any ) => {
+                {cars.slice(props.offset, props.offset + props.limit).map((item:any ) => {
                     return (
                         <div
                             key={item.name}

@@ -155,6 +155,23 @@
     {
       "name" : "Hatchback",
       "img": "https://i.picsum.photos/id/102/300/300.jpg"
+    },
+    {
+      "name" : "Spider",
+      "img": "https://i.picsum.photos/id/1032/300/300.jpg"
+    },
+    {
+      "name" : "MiTo",
+      "img": "https://i.picsum.photos/id/145/300/300.jpg"
+    },
+    {
+      "name" : "Brera",
+      "img": "https://i.picsum.photos/id/1033/300/300.jpg"
+    },
+    {
+      "name" : "Hatchback",
+      "img": "https://i.picsum.photos/id/102/300/300.jpg"
     }
+
   ]
 }
