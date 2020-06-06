@@ -2,7 +2,7 @@
   "models": [
     {
       "name": "Spider",
-      "body": ["cabriolet"],
+
       "img": "https://i.picsum.photos/id/1018/300/300.jpg",
       "engines": [
          {
@@ -42,7 +42,6 @@
     },
     {
       "name": "MiTo",
-      "body": ["hatchback", "sedan"],
       "img": "https://i.picsum.photos/id/118/300/300.jpg",
       "engines": [
         {
@@ -81,7 +80,6 @@
     },
     {
       "name": "Brera",
-      "body": ["cabriolet", "sedan"],
       "img": "https://i.picsum.photos/id/101/300/300.jpg",
       "engines": [
         {
@@ -117,7 +115,6 @@
     },
     {
       "name": "Hatchback",
-      "body": ["GTV"],
       "img": "https://i.picsum.photos/id/128/300/300.jpg",
       "engines": [
         {
