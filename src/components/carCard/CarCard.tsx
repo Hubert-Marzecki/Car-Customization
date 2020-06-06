@@ -1,12 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import "./_carCard.scss"
 import {useDispatch, useSelector} from "react-redux";
-import carSlice, {setCar} from "../../app/slices/carsSlice";
-import pickedCarSlice, {setPickedCar} from "../../app/slices/pickedCarSlice"
+import {setCar} from "../../app/slices/carsSlice";
+import pickedCarSlice from "../../app/slices/pickedCarSlice"
 import finalCarSlice from "../../app/slices/finalCarSlice";
-import {FinalCar} from "../../Model";
 import {getFromUrl} from "../../services/ApiClient";
-import {PaginationButton} from "../buttons/PaginationButton";
 
 export function CarCard  (props:{offset: number, limit:number}) : JSX.Element  {
     const cars = useSelector(setCar);
@@ -27,7 +25,7 @@ return (
                             onClick={ () => {
                                 loadCar(item.name)
                                 dispatch(finalCarSlice.actions.setFinalCarReset())
-
+                                dispatch(finalCarSlice.actions.setFinalName({name: item.name}))
                             }}
                         >
                             <p className="caption">{ item.name}</p>

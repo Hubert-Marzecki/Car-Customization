@@ -121,7 +121,7 @@ function App() : JSX.Element{
                  <SmallButton value="fuel" className={"small__button"} classNameActive={"small__button small__button--active"} pickModule={pickedCar[0]?.fuel} setValues={setValues}/>
             </div>
 
-        {finalCar.cost != 0 ? <PriceWidget/> : null}
+        {finalCar.cost >0 ? <PriceWidget/> : null}
         <SmallerHeader text="Pick Car Color" className={"header header__small"} />
         <ColorPicker/>
         </div>
