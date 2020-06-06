@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import './App.scss';
 import 'semantic-ui-css/semantic.min.css'
+
 import {getFromUrl} from "./services/ApiClient";
-import carSlice, {setCar} from "./app/slices/carsSlice";
+import carSlice, {CarsModels, setCar} from "./app/slices/carsSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {CarCard} from "./components/carCard/CarCard";
-
 import {SmallButton} from "./components/buttons/SmallButton";
 import {setPickedCar} from "./app/slices/pickedCarSlice";
 import finalCarSlice, {setFinalCar} from "./app/slices/finalCarSlice";
@@ -13,18 +13,19 @@ import {PriceWidget} from "./components/widget/PriceWidget";
 import {BigHeader} from "./components/headers/BigHeader";
 import {SmallerHeader} from "./components/headers/SmallerHeader";
 import {PaginationButton} from "./components/buttons/PaginationButton";
+import {ColorPicker} from "./components/ColorPickerComponent";
+import {FinalCar} from "./Model";
 
-function App() {
+function App() : JSX.Element{
     const dispatch = useDispatch();
     const pickedCar = useSelector(setPickedCar)
-    const finalCar = useSelector(setFinalCar)
-    const cars = useSelector(setCar);
-
+    const finalCar : FinalCar = useSelector(setFinalCar)
+    const cars : CarsModels[] = useSelector(setCar);
     const [offset, setOffset] = useState <number> (0)
     const LIMIT : number= 4;
 
     useEffect(() => {
-        getFromUrl("http://localhost:3000/shortModels").then(response => {
+        getFromUrl("http://localhost:3000/shortModels").then((response:any) => {
             dispatch(carSlice.actions.setCar(response))
         }).catch(alert)
     },[])
@@ -70,19 +71,20 @@ function App() {
         }
     }
 
+
+
   return (
     <div className="App">
         <BigHeader
             text={"Pick Model"}
-            className={"big__text big__text--picking"}
+            className={"header header__big"}
         />
 
         <CarCard offset={offset} limit={LIMIT}/>
-
         <div className="pagination__holder">
             <PaginationButton
                 text={"previous"}
-                className={"pagination pagination__previous"}
+                className={(offset ===0) ? "pagination__button--disable pagination__button " : "pagination__button "}
                 newOffset={newOffset}
                 offset={offset}
                 limit={LIMIT}
@@ -90,7 +92,7 @@ function App() {
             />
             <PaginationButton
                 text={"next"}
-                className={"pagination pagination__previous"}
+                className={(offset + LIMIT >= cars.length) ? "pagination__button--disable pagination__button " : "pagination__button"}
                 newOffset={newOffset}
                 offset={offset}
                 limit={LIMIT}
@@ -100,29 +102,31 @@ function App() {
 
         <BigHeader
             text={`Picked Model: ${pickedCar[0] === undefined ? "" : pickedCar[0]?.name}`}
-            className={"big__text big__text--model"}
+            className={"header header__big"}
         />
-        <div className="button__center">
+        <div className="pick__section">
             <div className="option__wrapper">
-                <SmallerHeader text="Pick Engines" className={""} />
-                <SmallButton value={"engine"} className={"small__button"} pickModule={pickedCar[0]?.engines}  setValues={setValues} />
-            </div>
-            <div className="option__wrapper">
-                <SmallerHeader text="Drive" className={""} />
-                <SmallButton value={"drive"} className={"small__button"} pickModule={pickedCar[0]?.drive} setValues={setValues} />
-            </div>
-            <div className="option__wrapper">
-                 <SmallerHeader text="Fuel " className={""} />
-                 <SmallButton value="fuel" className={"small__button"} pickModule={pickedCar[0]?.fuel} setValues={setValues}/>
-            </div>
-        </div>
-        {finalCar.cost != 0 ? <PriceWidget/> : null}
-    </div>
-  //    todo hide button when pagination ends
-  //    todo option__wrpaper separated compoennts?
-  //    todo functions outside App.tsx?
-  //    todo offset - slice or not
+                <SmallerHeader text="Pick Engines" className={"header header__small"} />
 
+                <SmallButton value={"engine"} className={"small__button"} classNameActive={"small__button small__button--active"} pickModule={pickedCar[0]?.engines}  setValues={setValues} />
+
+
+            </div>
+            <div className="option__wrapper">
+                <SmallerHeader text="Drive" className={"header header__small"} />
+                <SmallButton value={"drive"} className={"small__button"} classNameActive={"small__button small__button--active"} pickModule={pickedCar[0]?.drive} setValues={setValues} />
+            </div>
+            <div className="option__wrapper">
+                 <SmallerHeader text="Fuel " className={"header header__small"} />
+                 <SmallButton value="fuel" className={"small__button"} classNameActive={"small__button small__button--active"} pickModule={pickedCar[0]?.fuel} setValues={setValues}/>
+            </div>
+
+        {finalCar.cost != 0 ? <PriceWidget/> : null}
+        <SmallerHeader text="Pick Car Color" className={"header header__small"} />
+        <ColorPicker/>
+        </div>
+
+    </div>
   );
 }
 

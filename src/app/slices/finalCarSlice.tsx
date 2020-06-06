@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 import {FinalCar} from "../../Model";
-import thunk from 'redux-thunk'
 
 
 function initialState() :FinalCar {
@@ -45,19 +44,20 @@ export const finalCar = createSlice({
         setFinalCost: (state:FinalCar) => {
             state.cost = state.engineCost + state.driveCost + state.fuelCost
         },
-        setFinalCostReset: (state:FinalCar) => {
+        setFinalCarReset: (state:FinalCar) => {
+            state.name= ""
+            state.body = ""
+            state.engine = ""
+            state.drive = ""
+            state.fuel = ""
             state.cost = 0
             state.engineCost = 0
             state.driveCost = 0
             state.fuelCost = 0
-
         },
-
     }
 })
-export const {
- setFinalBody, setFinalCost,setFinalDrive, setFinalEngine,setFinalFuel,setFinalName, setFinalCostReset
-} = finalCar.actions;
+
 
 export const setFinalCar  = (state:any ) => state.finalCar;
 export default finalCar;

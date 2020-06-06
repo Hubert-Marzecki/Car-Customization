@@ -49,7 +49,7 @@ import { createSlice} from "@reduxjs/toolkit";
 // }
 // }
 
-interface CarsModels {
+export interface CarsModels {
     name:string,
     img:string
 }
@@ -59,7 +59,7 @@ export const car = createSlice({
     name: "car",
     initialState: [],
     reducers:{
-        setCar: ( state:any, action) => action.payload
+        setCar: ( state:CarsModels[], action) => action.payload
     }
 })
 

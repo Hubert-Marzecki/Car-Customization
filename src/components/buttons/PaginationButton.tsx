@@ -10,7 +10,9 @@ export function PaginationButton(props:{
     target: string
 }) {
     return (
-        <button className={props.className} onClick={() => props.newOffset(props.offset, props.target, props.limit)}>
+        <button
+            className={props.className}
+            onClick={() => props.newOffset(props.offset, props.target, props.limit)}>
             {props.text}
         </button>
     )

@@ -1,5 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface PickedCar {
+    name:string,
+    body:string[],
+
+}
+
 
 export const pickedCar = createSlice({
     name: "pickedCar",

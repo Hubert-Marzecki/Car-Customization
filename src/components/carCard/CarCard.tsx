@@ -10,16 +10,12 @@ import {PaginationButton} from "../buttons/PaginationButton";
 
 export function CarCard  (props:{offset: number, limit:number}) : JSX.Element  {
     const cars = useSelector(setCar);
-    const pickedCar = useSelector(setPickedCar)
     const dispatch = useDispatch()
-
-
 
     function loadCar(x:string) {
         getFromUrl(`http://localhost:3000/models?name=${x}`).then((response) => {
             dispatch(pickedCarSlice.actions.setPickedCar(response))
     })}
-
 
 return (
             <div className="cards__container">
@@ -30,7 +26,7 @@ return (
                             className="card"
                             onClick={ () => {
                                 loadCar(item.name)
-                                dispatch(finalCarSlice.actions.setFinalCostReset())
+                                dispatch(finalCarSlice.actions.setFinalCarReset())
 
                             }}
                         >
