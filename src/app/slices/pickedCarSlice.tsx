@@ -2,8 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 interface PickedCar {
     name:string,
-    body:string[],
-
 }
 
 

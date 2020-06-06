@@ -5,14 +5,19 @@ import {FinalCar} from "../../Model";
 function initialState() :FinalCar {
     return {
         name: "",
-        body: "",
         engine:"",
         engineCost:0,
         drive:"",
         driveCost:0,
         fuel:"",
         fuelCost:0,
-        cost:0
+        cost:0,
+        color: {
+            r: 241,
+            g: 112,
+            b: 19,
+            a: 1,
+        }
     }
 }
 
@@ -26,9 +31,7 @@ export const finalCar = createSlice({
         setFinalName: (state:FinalCar, action: {type: string, payload: {name: string}}) => {
             state.name =  action.payload.name
         },
-        setFinalBody: (state:FinalCar, action) => {
-            state.body = action.payload.body
-        },
+
         setFinalEngine: (state:FinalCar, action: {type: string, payload: {engine: string, engineCost: number}}) => {
             state.engine = action.payload.engine
             state.engineCost = action.payload.engineCost
@@ -44,9 +47,11 @@ export const finalCar = createSlice({
         setFinalCost: (state:FinalCar) => {
             state.cost = state.engineCost + state.driveCost + state.fuelCost
         },
+        setFinalColor: (state, action: {type:string, payload: {color : { r:number, g:number, b:number, a:number}}}) => {
+            state.color = action.payload.color
+},
         setFinalCarReset: (state:FinalCar) => {
             state.name= ""
-            state.body = ""
             state.engine = ""
             state.drive = ""
             state.fuel = ""
@@ -59,5 +64,5 @@ export const finalCar = createSlice({
 })
 
 
-export const setFinalCar  = (state:any ) => state.finalCar;
+export const setFinalCar=  (state:any ) => state.finalCar;
 export default finalCar;

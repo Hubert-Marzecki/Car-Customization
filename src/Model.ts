@@ -1,6 +1,5 @@
 export interface FinalCar {
     name: string,
-    body: string
     engine:string,
     engineCost:number,
     drive:string,
@@ -8,4 +7,10 @@ export interface FinalCar {
     fuel:string,
     fuelCost:number,
     cost:number
+    color:{
+        r: number,
+        g: number,
+        b: number,
+        a: number,
+    }
 }
