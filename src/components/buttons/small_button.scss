@@ -11,7 +11,12 @@
   border-radius: 5px;
   padding: 10px 15px ;
   margin: 0.5em 0.5em 0 1em;
+  transition: background-color 0.1s;
+  &--active {
+  background-color: $darkblue;
+  }
 }
+
 .button__wrapper{
   display: inline-flex;
   flex-direction: column;

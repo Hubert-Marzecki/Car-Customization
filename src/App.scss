@@ -4,12 +4,11 @@
 //Cool buttons
 //https://codepen.io/kevinmiranda/pen/XwaopR
 
-.button__center{
+.pick__section{
 text-align: center;
-
 }
 .App{
-  padding-bottom: 10em;
+  margin-bottom: 15em;
 }
 
 .pagination__holder{
@@ -17,5 +16,8 @@ text-align: center
 }
 
 .option__wrapper{
-  height: 140px;
+  min-height: 140px;
+}
+.color__picker {
+  text-align: center;
 }

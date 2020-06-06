@@ -1,10 +1,14 @@
-.big__text{
-  text-align: center;
-  padding-top: 2em;
-
+.header {
+text-align: center;
 }
+.header__big{
+  padding-top: 1em;
+  font-size: 2em;
+  }
 
-
-.big__text--model{
-  margin-bottom: 3em;
-}
+  .header__small{
+    font-size: 2em;
+    padding-top: 1em;
+    font-weight: 100;
+    margin-bottom: 0;
+  }
