@@ -1,0 +1,16 @@
+
+.swatch{
+  padding: 5px;
+  background: #fff;
+  border-radius: 1px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+  display: inline-block;
+  cursor: pointer;
+  margin: 1em;
+}
+.popover{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  padding-bottom: 5em;
+}
