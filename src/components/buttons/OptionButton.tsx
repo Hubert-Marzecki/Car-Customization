@@ -1,9 +1,10 @@
 import React, {useEffect} from 'react';
-import "./small_button.scss"
+import "./option_button.scss"
 import {setFinalCar} from "../../app/slices/finalCarSlice";
 import {useSelector} from "react-redux";
+import {FinalCar} from "../../Model";
 
-export function SmallButton (props:{
+export function OptionButton (props:{
     value:string,
     className:string,
     classNameActive:string
@@ -11,7 +12,7 @@ export function SmallButton (props:{
     setValues: (target: string, name:string, cost:number) => void
 
 } ) : JSX.Element  {
-useEffect(() => {
+useEffect(() :void => {
    if( props.pickModule?.length ===1) {
        props.setValues(props.value, props.pickModule?.[0].name, props.pickModule?.[0].price)
    }
@@ -19,8 +20,8 @@ useEffect(() => {
 },[props.pickModule])
 
 
-const finalCar = useSelector(setFinalCar)
-    function singleOption() {
+const finalCar :FinalCar = useSelector(setFinalCar)
+    function singleOption() :JSX.Element{
         return (
             <div className="button__wrapper"
             >
@@ -34,7 +35,7 @@ const finalCar = useSelector(setFinalCar)
             </div>
         )
     }
-    function multipleOption() {
+    function multipleOption():JSX.Element[] {
         return (
             props.pickModule?.map((item :any, index:number) => {
 
@@ -62,7 +63,7 @@ const finalCar = useSelector(setFinalCar)
     }
 
 
-    function displayButtons() {
+    function displayButtons() : JSX.Element | JSX.Element[] {
         if(props.pickModule?.length ===1 ){
             return  singleOption()
 

@@ -8,7 +8,7 @@ export function PaginationButton(props:{
     offset: number,
     limit:number,
     target: string
-}) {
+}) :JSX.Element {
     return (
         <button
             className={props.className}

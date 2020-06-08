@@ -5,8 +5,3 @@ export function getFromUrl<T>(url: string): Promise<T> {
         return response.data;
     });
 }
-
-// export function getCarInfo() {
-//    return getFromUrl("http://localhost:3000/models");
-//
-// }

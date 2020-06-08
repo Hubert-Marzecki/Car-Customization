@@ -1,13 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit";
+import {PickedCar} from "../../Model";
 
-interface PickedCar {
-    name:string,
+
+function initialState() :PickedCar[] {
+return  []
 }
-
 
 export const pickedCar = createSlice({
     name: "pickedCar",
-    initialState: [],
+    initialState: initialState(),
     reducers:{
         setPickedCar: ( state:any, action) => action.payload
     }
@@ -15,3 +16,5 @@ export const pickedCar = createSlice({
 
 export const setPickedCar = (state:any) => state.pickedCar;
 export default pickedCar;
+
+// todo action type

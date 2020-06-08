@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import {SketchPicker} from "react-color";
 import "./_color-picker.scss"
 import {useDispatch, useSelector} from "react-redux";
-import finalCarSlice, {setFinalCar} from "../app/slices/finalCarSlice";
+import finalCarSlice, {setFinalCar} from "../../app/slices/finalCarSlice";
 
 interface ColorPickerComponent {
     displayColorPicker: boolean,
@@ -15,7 +15,7 @@ interface ColorPickerComponent {
     }
 }
 
-export function ColorPicker() {
+export function ColorPicker(): JSX.Element {
     const [colorPicker, setColorPicker] = useState<boolean>(false)
     const finalCar = useSelector(setFinalCar)
     const dispatch = useDispatch()
@@ -42,19 +42,18 @@ export function ColorPicker() {
     //change global state
     const handleChange = (color:any) => {
         dispatch(finalCarSlice.actions.setFinalColor({color: color.rgb}))
-        // setColorPicker(s => ({...s, color: color.rgb }))
     };
 
 return (
     <div className="color__picker">
-
         <div className="swatch" onClick={ handleClick }>
             <div style={ styles.color } />
         </div>
-        { colorPicker ? <div className="popover" >
+        { colorPicker ?
+            <div className="popover" >
             <div className="cover" onClick={ handleClose }/>
             <SketchPicker color={ finalCar.color } onChange={ handleChange } />
-        </div> : null }
+            </div> : null }
 
     </div>
 )

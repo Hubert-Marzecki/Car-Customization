@@ -3,28 +3,30 @@ import './App.scss';
 import 'semantic-ui-css/semantic.min.css'
 
 import {getFromUrl} from "./services/ApiClient";
-import carSlice, {CarsModels, setCar} from "./app/slices/carsSlice";
+import carSlice, { setCar} from "./app/slices/carsSlice";
 import {useDispatch, useSelector} from "react-redux";
 import {CarCard} from "./components/carCard/CarCard";
-import {SmallButton} from "./components/buttons/SmallButton";
+import {OptionButton} from "./components/buttons/OptionButton";
 import {setPickedCar} from "./app/slices/pickedCarSlice";
 import finalCarSlice, {setFinalCar} from "./app/slices/finalCarSlice";
 import {PriceWidget} from "./components/widget/PriceWidget";
 import {BigHeader} from "./components/headers/BigHeader";
-import {SmallerHeader} from "./components/headers/SmallerHeader";
+import {SecondaryHeader} from "./components/headers/SecondaryHeader";
 import {PaginationButton} from "./components/buttons/PaginationButton";
-import {ColorPicker} from "./components/ColorPickerComponent";
-import {FinalCar} from "./Model";
+import {ColorPicker} from "./components/colorPicker/ColorPickerComponent";
+import {CarsModels, FinalCar, PickedCar} from "./Model";
+
+// todo delete unused libaries
 
 function App() : JSX.Element{
     const dispatch = useDispatch();
-    const pickedCar = useSelector(setPickedCar)
+    const pickedCar: PickedCar[] = useSelector(setPickedCar)
     const finalCar : FinalCar = useSelector(setFinalCar)
     const cars : CarsModels[] = useSelector(setCar);
     const [offset, setOffset] = useState <number> (0)
     const LIMIT : number= 4;
 
-    useEffect(() => {
+    useEffect(() :void => {
         getFromUrl("http://localhost:3000/shortModels").then((response:any) => {
             dispatch(carSlice.actions.setCar(response))
         }).catch(alert)
@@ -72,7 +74,6 @@ function App() : JSX.Element{
     }
 
 
-
   return (
     <div className="App">
         <BigHeader
@@ -80,7 +81,10 @@ function App() : JSX.Element{
             className={"header header__big"}
         />
 
-        <CarCard offset={offset} limit={LIMIT}/>
+        <CarCard
+            offset={offset}
+            limit={LIMIT}
+        />
         <div className="pagination__holder">
             <PaginationButton
                 text={"previous"}
@@ -106,26 +110,51 @@ function App() : JSX.Element{
         />
         <div className="pick__section">
             <div className="option__wrapper">
-                <SmallerHeader text="Pick Engines" className={"header header__small"} />
-
-                <SmallButton value={"engine"} className={"small__button"} classNameActive={"small__button small__button--active"} pickModule={pickedCar[0]?.engines}  setValues={setValues} />
-
-
+                <SecondaryHeader
+                    text="Pick Engines"
+                    className={"header header__secondary"}
+                />
+                <OptionButton
+                    value={"engine"}
+                    className={"small__button"}
+                    classNameActive={"small__button small__button--active"}
+                    pickModule={pickedCar[0]?.engines}
+                    setValues={setValues}
+                />
             </div>
             <div className="option__wrapper">
-                <SmallerHeader text="Drive" className={"header header__small"} />
-                <SmallButton value={"drive"} className={"small__button"} classNameActive={"small__button small__button--active"} pickModule={pickedCar[0]?.drive} setValues={setValues} />
+                <SecondaryHeader
+                    text="Drive"
+                    className={"header header__secondary"}
+                />
+                <OptionButton
+                    value={"drive"}
+                    className={"small__button"}
+                    classNameActive={"small__button small__button--active"}
+                    pickModule={pickedCar[0]?.drive}
+                    setValues={setValues}
+                />
             </div>
             <div className="option__wrapper">
-                 <SmallerHeader text="Fuel " className={"header header__small"} />
-                 <SmallButton value="fuel" className={"small__button"} classNameActive={"small__button small__button--active"} pickModule={pickedCar[0]?.fuel} setValues={setValues}/>
+                 <SecondaryHeader
+                     text="Fuel "
+                     className={"header header__secondary"}
+                 />
+                 <OptionButton
+                     value="fuel"
+                     className={"small__button"}
+                     classNameActive={"small__button small__button--active"}
+                     pickModule={pickedCar[0]?.fuel}
+                     setValues={setValues}/>
             </div>
 
         {finalCar.cost >0 ? <PriceWidget/> : null}
-        <SmallerHeader text="Pick Car Color" className={"header header__small"} />
+        <SecondaryHeader
+            text="Pick Car Color"
+            className={"header header__secondary"}
+        />
         <ColorPicker/>
         </div>
-
     </div>
   );
 }

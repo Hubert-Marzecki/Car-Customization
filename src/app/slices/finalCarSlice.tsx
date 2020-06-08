@@ -64,5 +64,5 @@ export const finalCar = createSlice({
 })
 
 
-export const setFinalCar=  (state:any ) => state.finalCar;
+export const setFinalCar =  (state:any ) => state.finalCar;
 export default finalCar;

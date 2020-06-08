@@ -1,8 +1,10 @@
+//breakpoitns
 $xs: 600px;
 $sm: 960px;
 $md: 1280px;
 $lg: 1920px;
 
+//fonts
 @font-face {
   font-family: "standard";
   src: url('../assets/fonts/Poppins-Regular.ttf');
@@ -20,7 +22,7 @@ $lg: 1920px;
   src: url('../assets/fonts/Poppins-Bold.ttf');
 }
 
-
+// colors
 $grey : #282828;
 $black: black;
 //colors one
@@ -37,30 +39,12 @@ $greylight: #C5C6C7;
 $lightblue: #66FCF1;
 $darkblue: #45A29E;
 
-
-@mixin header-font {
-  font-size: 2.5em;
-  font-family: "bold";
-  letter-spacing: 10px;
-}
-
-@mixin small-caption {
-  font-size: 0.8em;
-  font-family: "bold";
-  letter-spacing: 5px;
-}
-
-@mixin body-text {
-  font-size: 1em;
-  font-family: "medium";
-  letter-spacing: 3px;
-}
-
+//mixins
 @mixin button {
   border: none;
   outline: none;
   cursor: pointer;
 }
 
-  //$box-shadow: 0px 3px 10px grey;
+$border-radius: 5px
 
