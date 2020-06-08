@@ -142,6 +142,119 @@
           "price": 400
         }
       ]
+    },
+    {
+      "name": "Alfa Romeo 155",
+      "img": "https://i.picsum.photos/id/138/300/300.jpg",
+      "engines": [
+        {
+          "name": "tier",
+          "price": 3000
+        },
+        {
+          "name": "v system",
+          "price": 3400
+        }
+      ],
+      "drive": [
+        {
+          "name": "Front-wheel",
+          "price": 1030
+        },
+        {
+          "name": "4X4",
+          "price": 1000
+        }
+      ],
+      "fuel": [
+        {
+          "name": "gasoline",
+          "price": 400
+        },
+        {
+          "name": "diesel",
+          "price": 300
+        }
+
+      ]
+    },
+    {
+      "name": "Alfasud",
+      "img": "https://i.picsum.photos/id/138/300/300.jpg",
+      "engines": [
+        {
+          "name": "tier",
+          "price": 3000
+        }
+      ],
+      "drive": [
+        {
+          "name": "Front-wheel",
+          "price": 1030
+        }
+      ],
+      "fuel": [
+        {
+          "name": "gasoline",
+          "price": 400
+        }
+      ]
+    },
+    {
+      "name": "Sprint",
+      "img": "https://i.picsum.photos/id/105/300/300.jpg",
+      "engines": [
+        {
+          "name": "boxer",
+          "price": 5000
+        }
+      ],
+      "drive": [
+        {
+          "name": "Front-wheel",
+          "price": 1030
+        }
+      ],
+      "fuel": [
+        {
+          "name": "gasoline",
+          "price": 400
+        }
+      ]
+    },
+    {
+      "name": "Stelvio",
+      "img": "https://i.picsum.photos/id/142/300/300.jpg",
+      "engines": [
+        {
+          "name": "tier",
+          "price": 3000
+        },
+        {
+          "name": "v system",
+          "price": 3400
+        }
+      ],
+      "drive": [
+        {
+          "name": "4X4",
+          "price": 1000
+        },
+        {
+          "name": "Rear-wheel",
+          "price": 900
+        }
+      ],
+      "fuel": [
+        {
+          "name": "gasoline",
+          "price": 400
+        },
+        {
+          "name": "diesel",
+          "price": 300
+        }
+      ]
     }
   ],
   "shortModels" : [
@@ -162,19 +275,19 @@
       "img": "https://i.picsum.photos/id/551/300/300.jpg"
     },
     {
-      "name" : "Spider",
-      "img": "https://i.picsum.photos/id/605/300/300.jpg"
+      "name" : "Alfa Romeo 155",
+      "img": "https://i.picsum.photos/id/195/300/300.jpg"
     },
     {
-      "name" : "MiTo",
-      "img": "https://i.picsum.photos/id/655/300/300.jpg"
+      "name" : "Alfasud",
+      "img": "https://i.picsum.photos/id/500/300/300.jpg"
     },
     {
-      "name" : "Brera",
-      "img": "https://i.picsum.photos/id/1033/300/300.jpg"
+      "name" : "Sprint",
+      "img": "https://i.picsum.photos/id/1021/300/300.jpg"
     },
     {
-      "name" : "Hatchback",
+      "name" : "Stelvio",
       "img": "https://i.picsum.photos/id/102/300/300.jpg"
     }
 
