@@ -1,6 +1,6 @@
 @import "src/styles/varibles";
 
-.small__button {
+.option__button {
   background-color: $blacklike;
   color: white;
   border: none;
@@ -24,8 +24,10 @@
   justify-content: center;
   width: 200px;
   margin: 0.5em auto;
-  //border-style: solid;
   text-align: center;
+  @media (max-width: $sm) {
+    width: 40vw;
+  }
 
 }
 .button__caption{

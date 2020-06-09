@@ -1,3 +1,19 @@
+export interface CarsModels {
+    name:string,
+    img:string
+}
+type Elements = {
+    name:string,
+    price:number
+}
+
+export interface PickedCar {
+    name:string,
+    img: string,
+    engines: Elements[],
+    drive: Elements[],
+    fuel: Elements[],
+}
 export interface FinalCar {
     name: string,
     engine:string,
@@ -15,20 +31,8 @@ export interface FinalCar {
     }
 }
 
-export interface CarsModels {
-    name:string,
-    img:string
-}
-
-type Elements = {
-    name:string,
-    price:number
-}
-export interface PickedCar {
-    name:string,
-    img: string,
-    engines: Elements[],
-    drive: Elements[],
-    fuel: Elements[],
-
+export interface State {
+    carsModels: CarsModels[],
+    pickedCar: PickedCar,
+    finalCar: FinalCar
 }

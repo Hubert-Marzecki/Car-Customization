@@ -116,8 +116,8 @@ function App() : JSX.Element{
                 />
                 <OptionButton
                     value={"engine"}
-                    className={"small__button"}
-                    classNameActive={"small__button small__button--active"}
+                    className={"option__button"}
+                    classNameActive={"option__button option__button--active"}
                     pickModule={pickedCar[0]?.engines}
                     setValues={setValues}
                 />
@@ -129,8 +129,8 @@ function App() : JSX.Element{
                 />
                 <OptionButton
                     value={"drive"}
-                    className={"small__button"}
-                    classNameActive={"small__button small__button--active"}
+                    className={"option__button"}
+                    classNameActive={"option__button option__button--active"}
                     pickModule={pickedCar[0]?.drive}
                     setValues={setValues}
                 />
@@ -142,8 +142,8 @@ function App() : JSX.Element{
                  />
                  <OptionButton
                      value="fuel"
-                     className={"small__button"}
-                     classNameActive={"small__button small__button--active"}
+                     className={"option__button"}
+                     classNameActive={"option__button option__button--active"}
                      pickModule={pickedCar[0]?.fuel}
                      setValues={setValues}/>
             </div>

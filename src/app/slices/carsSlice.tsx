@@ -15,5 +15,4 @@ export const car = createSlice({
 
 export const setCar = (state:any) => state.car;
 export default car;
-
 // todo payload action type
