@@ -1,5 +1,5 @@
 import { createSlice} from "@reduxjs/toolkit";
-import {CarsModels} from "../../Model";
+import {Action, CarsModels, PickedCar, State} from "../../Model";
 
 function initialState() : CarsModels[] {
 return []
@@ -9,10 +9,10 @@ export const car = createSlice({
     name: "car",
     initialState: initialState(),
     reducers:{
-        setCar: ( state:CarsModels[], action) => action.payload
+        setCar: ( state:CarsModels[],  action: Action<any>) => action.payload
     }
-})
 
-export const setCar = (state:any) => state.car;
-export default car;
+})
 // todo payload action type
+export const setCar : (state: State) => CarsModels[] = (state:State) => state.car;
+export default car;

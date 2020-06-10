@@ -1,20 +1,25 @@
-import { createSlice } from "@reduxjs/toolkit";
-import {PickedCar} from "../../Model";
+import {Action, PickedCar, State} from "../../Model";
+import {createSlice} from "@reduxjs/toolkit";
 
-
-function initialState() :PickedCar[] {
-return  []
+type PickedCarState = PickedCar | null;
+function initialState(): PickedCarState {
+  return null;
 }
-
 export const pickedCar = createSlice({
-    name: "pickedCar",
-    initialState: initialState(),
-    reducers:{
-        setPickedCar: ( state:any, action) => action.payload
-    }
-})
+  name: "pickedCar",
+  initialState: initialState(),
+  reducers: {
+    setPickedCar: (state: PickedCarState, action: Action<PickedCar>) =>
+      action.payload,
+  },
+});
 
-export const setPickedCar = (state:any) => state.pickedCar;
+export const setPickedCar: (state: State) => PickedCarState = (state: State) =>
+  state.pickedCar;
 export default pickedCar;
 
-// todo action type
+// {
+//     availableCars: {name: string, image: string}[],
+//     chosenCar: Option<{}>
+//     finalCar: { key: null | cuś }
+// }

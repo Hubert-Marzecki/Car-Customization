@@ -6,13 +6,13 @@
   font-weight: 400;
   font-size: 1.2em;
   border-radius: 5px;
-  padding: 10px 15px ;
+  padding: 10px 15px;
   margin: 0.5em 0.5em 0 1em;
   width: 100px;
   box-shadow: 0 3px 5px grey;
   transition: opacity 0.2s;
 
-  &--disable{
+  &--disable {
     opacity: 0.4;
   }
 }

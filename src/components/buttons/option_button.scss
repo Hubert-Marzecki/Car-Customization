@@ -3,9 +3,7 @@
 .option__button {
   background-color: $blacklike;
   color: white;
-  border: none;
-  outline: none;
-  cursor: pointer;
+  @include button;
   font-weight: 400;
   font-size: 1.2em;
   border-radius: 5px;
