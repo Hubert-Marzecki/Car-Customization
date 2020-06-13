@@ -16,4 +16,4 @@ export function PaginationButton(props:{
             {props.text}
         </button>
     )
-}
+} 

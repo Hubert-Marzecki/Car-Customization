@@ -1,4 +1,4 @@
-export interface CarsModels {
+export interface AvaiableCar {
   name: string;
   img: string;
 }
@@ -17,10 +17,11 @@ export interface PickedCarResponse {
 export interface PickedCar {
     name: string;
     img: string;
-    engines: Engine[];
+    engines: Element[];
     drive: Element[];
     fuel: Element[];
-}
+} 
+
 export type Target = "engine" | "drive" | "fuel"
 
 // function  mapToPickedCar(response: PickedCarResponse): PickedCar {
@@ -37,7 +38,7 @@ type Engine = {
   price: number;
 };
 
-export interface FinalCar {
+export interface CustomizedCar {
   name: string;
   engine: string;
   engineCost: number;
@@ -45,7 +46,6 @@ export interface FinalCar {
   driveCost: number;
   fuel: string;
   fuelCost: number;
-  cost: number;
   color: {
     r: number;
     g: number;
@@ -55,10 +55,13 @@ export interface FinalCar {
 }
 
 export interface State {
-  car: CarsModels[]
-  pickedCar: PickedCar;
-  finalCar: FinalCar;
+  availableCars: AvaiableCar[]
+  carDetails: PickedCar | null,
+  customizedCar: CustomizedCar
 }
+ 
+
+
 // todo jak zmienić akcje w elementcah>
 export type Action<T> = { type: string; payload: T };
 

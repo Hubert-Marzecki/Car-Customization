@@ -2,6 +2,7 @@
 
 .option__button {
   background-color: $blacklike;
+  font-family: 'standard';
   color: white;
   @include button;
   font-weight: 400;
@@ -12,6 +13,7 @@
   transition: background-color 0.1s;
   &--active {
   background-color: $darkblue;
+  
   }
 }
 
@@ -30,4 +32,4 @@
 }
 .button__caption{
   margin-top: 5px;
-}
+}  

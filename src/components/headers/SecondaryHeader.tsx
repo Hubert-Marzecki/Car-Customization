@@ -8,4 +8,4 @@ export function SecondaryHeader(props: { text: string; className: string }) :JSX
         </h2>
     )
 
-}
+}  

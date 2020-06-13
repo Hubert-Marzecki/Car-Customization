@@ -1,5 +1,8 @@
+@import "./src/styles/varibles";
+
 .header {
 text-align: center;
+font-family: 'standard';
 }
 .header__big{
   padding-top: 1em;
@@ -9,6 +12,7 @@ text-align: center;
   .header__secondary{
     font-size: 2em;
     padding-top: 1em;
-    font-weight: 100;
+    font-weight: 300;
     margin-bottom: 0;
   }
+  

@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import { SketchPicker } from "react-color";
 import "./_color-picker.scss";
 import { useDispatch, useSelector } from "react-redux";
-import finalCarSlice, { setFinalCar } from "../../app/slices/finalCarSlice";
+import { setFinalCar, state } from "../../app/slices/state";
+// import finalCarSlice, { setFinalCar } from "../../app/slices/finalCarSlice";
 
 export function ColorPicker(): JSX.Element {
   const [isVisible, setVisible] = useState<boolean>(false);
@@ -32,7 +33,7 @@ export function ColorPicker(): JSX.Element {
   //change global state
   // todo type
   const handleChange = (color: any) => {
-    dispatch(finalCarSlice.actions.setFinalColor({ color: color.rgb }));
+    dispatch(state.actions.setFinalColor({ color: color.rgb }));
   };
 
   return (
@@ -49,3 +50,4 @@ export function ColorPicker(): JSX.Element {
     </div>
   );
 }
+  

@@ -138,7 +138,7 @@
     },
     {
       "name": "Alfa Romeo 155",
-      "img": "https://i.picsum.photos/id/138/300/300.jpg",
+      "img": "https://picsum.photos/id/237/200/300",
       "engines": [
         {
           "name": "Tier",
@@ -253,7 +253,7 @@
   "shortModels" : [
     {
       "name" : "Spider",
-      "img": "https://i.picsum.photos/id/111/300/300.jpg"
+      "img": "https://i.picsum.photos/id/1002/300/300.jpg?hmac=5LlLE-NY9oMnmIQp7ms6IfdvSUQOzP_O3DPMWmyNxwo"
     },
     {
       "name" : "MiTo",

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import "./option_button.scss";
-import { setFinalCar } from "../../app/slices/finalCarSlice";
 import { useSelector } from "react-redux";
-import {FinalCar, Target} from "../../Model";
+import {CustomizedCar, Target} from "../../Model";
+import { setFinalCar } from "../../app/slices/state";
 
 type Element = { name: string; price: number };
 export function OptionButton(props: {
@@ -22,14 +22,14 @@ export function OptionButton(props: {
     }
   }, [props.pickModule]);
 
-  const finalCar: FinalCar = useSelector(setFinalCar);
+  const finalCar: CustomizedCar = useSelector(setFinalCar);
   function singleOption(): JSX.Element {
     return (
       <div className="button__wrapper">
         <button
           className={props.classNameActive}
           value={props.pickModule[0].name}
-        >
+        >  
           {props.pickModule[0].name}
         </button>
         <p className="button__caption"> {props.pickModule[0].price} PLN</p>
@@ -73,3 +73,4 @@ export function OptionButton(props: {
 
   return <div>{displayButtons()}</div>;
 }
+    

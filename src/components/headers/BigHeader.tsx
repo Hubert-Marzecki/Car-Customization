@@ -8,4 +8,4 @@ export function BigHeader(props: { text: string; className: string }) :JSX.Eleme
         </h1>
     )
 
-}
+}  
