@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./App.scss";
 
-import { getFromUrl } from "./services/ApiClient";
+import { fetchAvailableCars } from "./services/ApiClient";
 import { useDispatch, useSelector } from "react-redux";
 import { CarCard } from "./components/carCard/CarCard";
 import { OptionButton } from "./components/buttons/OptionButton";
@@ -10,22 +10,21 @@ import { BigHeader } from "./components/headers/BigHeader";
 import { SecondaryHeader } from "./components/headers/SecondaryHeader";
 import { PaginationButton } from "./components/buttons/PaginationButton";
 import { ColorPicker } from "./components/colorPicker/ColorPickerComponent";
-import {AvaiableCar, CustomizedCar, Target, PickedCar} from "./Model";
-import { state, setPickedCar, setFinalCar, setCar } from "./app/slices/state";
+import {AvailableCar, CustomizedCar, Target, PickedCar} from "./Model";
+import { state, getPickedCar, getFinalCar, getAvailableCars } from "./app/slices/state";
 
-// todo delete unused libaries
 function App(): JSX.Element {
   const dispatch = useDispatch();
-  const pickedCar: PickedCar | null = useSelector(setPickedCar);
-  const finalCar: CustomizedCar = useSelector(setFinalCar);
-  const cars: AvaiableCar[] = useSelector(setCar);
+  const pickedCar: PickedCar | null = useSelector(getPickedCar);
+  const finalCar: CustomizedCar = useSelector(getFinalCar);
+  const cars: AvailableCar[] = useSelector(getAvailableCars);
   const [offset, setOffset] = useState<number>(0);
   const LIMIT: number = 4;
 
   useEffect((): void => {
-    getFromUrl("http://localhost:3000/shortModels")
-      .then((response: any) => {
-        dispatch(state.actions.setCar(response));
+    fetchAvailableCars()
+      .then((response: AvailableCar[]) => {
+        dispatch(state.actions.setAvailableCars(response));
       })
       .catch(alert);
   }, []);
@@ -54,11 +53,7 @@ function App(): JSX.Element {
   function getTotalPrice() : number {
     return finalCar.engineCost + finalCar.driveCost + finalCar.fuelCost;
   }
-  
-  //alternatywa
-  //   function setElement(target: string) {
-  //     return (name: string, cost: number) => setValues(target, name, cost);
-  //   }
+
   function setValues(target: Target, name: string, cost: number) : void {
     switch (target) {
       case "engine":
@@ -116,7 +111,6 @@ function App(): JSX.Element {
       <BigHeader
         text={`Picked Model: ${
           pickedCar?.name || ""
-          // pickedCar === null ? "" : pickedCar?.name
         }`}
         className={"header header__big"}
       />

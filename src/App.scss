@@ -12,10 +12,11 @@ text-align: center;
 }
 .App{
   margin-bottom: 15em;
+  overflow-x: hidden;
 }
 .pagination__holder{
 text-align: center
 }
 .option__wrapper{
-  min-height: 140px;
+  min-height: 100px;
 }

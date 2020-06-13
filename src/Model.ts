@@ -1,4 +1,4 @@
-export interface AvaiableCar {
+export interface AvailableCar {
   name: string;
   img: string;
 }
@@ -24,19 +24,6 @@ export interface PickedCar {
 
 export type Target = "engine" | "drive" | "fuel"
 
-// function  mapToPickedCar(response: PickedCarResponse): PickedCar {
-//     return {
-//       name: response.name,
-//           img: response.img,
-//           engines: response.engines.map(e => ({...e, t: "engine" })),
-//     };
-// }
-
-type Engine = {
-  t: "engine";
-  name: string;
-  price: number;
-};
 
 export interface CustomizedCar {
   name: string;
@@ -55,7 +42,7 @@ export interface CustomizedCar {
 }
 
 export interface State {
-  availableCars: AvaiableCar[]
+  availableCars: AvailableCar[]
   carDetails: PickedCar | null,
   customizedCar: CustomizedCar
 }

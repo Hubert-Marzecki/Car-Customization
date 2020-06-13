@@ -3,11 +3,11 @@ import "./_carCard.scss";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getFromUrl } from "../../services/ApiClient";
-import { AvaiableCar, CustomizedCar, PickedCar } from "../../Model";
-import { state, setCar } from "../../app/slices/state";
+import { AvailableCar, PickedCar } from "../../Model";
+import { state, getAvailableCars } from "../../app/slices/state";
 
 export function CarCard(props: { offset: number; limit: number }): JSX.Element {
-  const cars: AvaiableCar[] = useSelector(setCar);
+  const cars: AvailableCar[] = useSelector(getAvailableCars);
   const dispatch = useDispatch();
 
   function loadCar(x: string): void {
@@ -19,19 +19,19 @@ export function CarCard(props: { offset: number; limit: number }): JSX.Element {
       }
     );
   }
+  
   return (
     <div className="cards__container">
       {cars
         .slice(props.offset, props.offset + props.limit)
-        .map((item: AvaiableCar) => {
+        .map((item: AvailableCar) => {
           return (
             <div
               key={item.name}
               className="card"
               onClick={(): void => {
                 loadCar(item.name);
-                dispatch(state.actions.resetAndSetNewCar({ name: item.name }));
-
+                // dispatch(state.actions.resetAndSetNewCar({ name: item.name }));
               }}
             >
               <p className="caption">{item.name}</p>

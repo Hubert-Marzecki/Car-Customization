@@ -3,12 +3,11 @@ import React, { useState } from "react";
 import { SketchPicker } from "react-color";
 import "./_color-picker.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { setFinalCar, state } from "../../app/slices/state";
-// import finalCarSlice, { setFinalCar } from "../../app/slices/finalCarSlice";
+import { getFinalCar, state } from "../../app/slices/state";
 
 export function ColorPicker(): JSX.Element {
   const [isVisible, setVisible] = useState<boolean>(false);
-  const finalCar = useSelector(setFinalCar);
+  const finalCar = useSelector(getFinalCar);
   const dispatch = useDispatch();
 
   const styles = reactCSS({
@@ -21,21 +20,16 @@ export function ColorPicker(): JSX.Element {
       },
     },
   });
-  // change local state
   const handleClick = () => {
     setVisible(!isVisible);
   };
-  // change local state
   const handleClose = () => {
     setVisible(false);
   };
 
-  //change global state
-  // todo type
   const handleChange = (color: any) => {
     dispatch(state.actions.setFinalColor({ color: color.rgb }));
   };
-
   return (
     <div className="color__picker">
       <div className="swatch" onClick={handleClick}>
