@@ -1,10 +1,9 @@
 import React, { useEffect } from "react";
 import "./option_button.scss";
 import { useSelector } from "react-redux";
-import {CustomizedCar, Target} from "../../Model";
+import {CustomizedCar, Target, Element} from "../../Model";
 import { getFinalCar } from "../../app/slices/state";
 
-type Element = { name: string; price: number };
 export function OptionButton(props: {
   target: Target;
   className: string;
@@ -12,9 +11,12 @@ export function OptionButton(props: {
   pickModule: Element[];
   setValues: (target: Target, name: string, cost: number) => void;
 }): JSX.Element {
+  const finalCar: CustomizedCar = useSelector(getFinalCar);
+
+  // set finalCar values if there is options to pick
   useEffect((): void => {
-    if (props.pickModule?.length === 1) {
-      props.setValues(
+    if (props.pickModule.length === 1) {
+        props.setValues(
         props.target,
         props.pickModule[0].name,
         props.pickModule[0].price
@@ -22,7 +24,7 @@ export function OptionButton(props: {
     }
   }, [props.pickModule]);
 
-  const finalCar: CustomizedCar = useSelector(getFinalCar);
+  // display single option as picked while there is only one option
   function singleOption(): JSX.Element {
     return (
       <div className="button__wrapper">
@@ -32,12 +34,13 @@ export function OptionButton(props: {
         >  
           {props.pickModule[0].name}
         </button>
-        <p className="button__caption"> {props.pickModule[0].price} PLN</p>
+        <p className="button__caption"> {props.pickModule[0].price} PLN </p>
       </div>
     );
   }
+  // display multiple options to pick from
   function multipleOption(): JSX.Element[] {
-    return props.pickModule?.map((item: any, index: number) => {
+    return props.pickModule.map((item: Element, index: number) => {
       function isThisElementChosen(): boolean {
         return (
           finalCar.engine === item.name ||
@@ -63,14 +66,14 @@ export function OptionButton(props: {
     });
   }
 
+  // display buttons depending on elements amount
   function displayButtons(): JSX.Element | JSX.Element[] {
-    if (props.pickModule?.length === 1) {
+    if (props.pickModule.length === 1) {
       return singleOption();
     } else {
       return multipleOption();
     }
   }
-
   return <div>{displayButtons()}</div>;
 }
     

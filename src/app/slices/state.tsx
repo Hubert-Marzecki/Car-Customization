@@ -39,7 +39,6 @@ const setColors = (
 ) => {
   state.customizedCar.color = action.payload.color;
 };
-
 function resetAndSetNewCar(
   state: State,
   action: { type: string; payload: { name: string } }
@@ -80,13 +79,6 @@ export const state = createSlice({
   name: "state",
   initialState: initialState(),
   reducers: {
-    setFinalName: (
-      state: State,
-      action: Action<{ name: string }>
-    ) => {
-      state.customizedCar.name = action.payload.name;
-    },
-
     setFinalEngine: setEngine,
     setFinalDrive: setDrive,
     setFinalFuel: setFuel,
@@ -104,8 +96,6 @@ export const state = createSlice({
     },
   },
 });
-
-
 export const getFinalCar = (state: any) => state.state.customizedCar;
 export const getAvailableCars: (state: any) => AvailableCar[] = (state: any) =>
   state.state.availableCars;

@@ -13,7 +13,7 @@ import { ColorPicker } from "./components/colorPicker/ColorPickerComponent";
 import {AvailableCar, CustomizedCar, Target, PickedCar} from "./Model";
 import { state, getPickedCar, getFinalCar, getAvailableCars } from "./app/slices/state";
 
-function App(): JSX.Element {
+function App(): JSX.Element  {
   const dispatch = useDispatch();
   const pickedCar: PickedCar | null = useSelector(getPickedCar);
   const finalCar: CustomizedCar = useSelector(getFinalCar);
@@ -21,6 +21,7 @@ function App(): JSX.Element {
   const [offset, setOffset] = useState<number>(0);
   const LIMIT: number = 4;
 
+  // fetch available car models
   useEffect((): void => {
     fetchAvailableCars()
       .then((response: AvailableCar[]) => {
@@ -29,6 +30,7 @@ function App(): JSX.Element {
       .catch(alert);
   }, []);
 
+  // set new offset (used in card slice)
   function newOffset(offset: number, target: string, limit: number): void {
     switch (target) {
       case "previous": {
@@ -50,10 +52,12 @@ function App(): JSX.Element {
     }
   }
 
+  // cumulate total cost of customizedCar
   function getTotalPrice() : number {
     return finalCar.engineCost + finalCar.driveCost + finalCar.fuelCost;
   }
 
+  // select element of customized car
   function setValues(target: Target, name: string, cost: number) : void {
     switch (target) {
       case "engine":
@@ -158,7 +162,7 @@ function App(): JSX.Element {
               />
             </div>
 
-            {getTotalPrice() > 0 ? <PriceWidget cost={getTotalPrice()}/> : null}
+            {getTotalPrice() > 0 ? <PriceWidget cost={getTotalPrice()} className="side__widget" /> : null}
             <SecondaryHeader
               text="Pick Car Color"
               className="header header__secondary"

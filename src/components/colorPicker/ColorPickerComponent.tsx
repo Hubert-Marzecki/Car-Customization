@@ -20,16 +20,18 @@ export function ColorPicker(): JSX.Element {
       },
     },
   });
-  const handleClick = () => {
+
+  const handleClick : () => void = () => {
     setVisible(!isVisible);
   };
-  const handleClose = () => {
+  const handleClose : () => void = () => {
     setVisible(false);
   };
 
   const handleChange = (color: any) => {
     dispatch(state.actions.setFinalColor({ color: color.rgb }));
   };
+
   return (
     <div className="color__picker">
       <div className="swatch" onClick={handleClick}>
@@ -40,7 +42,7 @@ export function ColorPicker(): JSX.Element {
           <div className="cover" onClick={handleClose} />
           <SketchPicker color={finalCar.color} onChange={handleChange} />
         </div>
-      ) : null}
+      ) : null }
     </div>
   );
 }

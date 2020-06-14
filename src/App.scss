@@ -1,22 +1,15 @@
 @import "components/carCard/carCard";
 @import "styles/varibles";
 
-//Cool buttons
-//https://codepen.io/kevinmiranda/pen/XwaopR
-
+.pagination__holder{
+  text-align: center
+}
 .pick__section{
-text-align: center;
+  text-align: center;
   width: 95%;
   margin: 0 auto;
-
 }
 .App{
   margin-bottom: 15em;
   overflow-x: hidden;
-}
-.pagination__holder{
-text-align: center
-}
-.option__wrapper{
-  min-height: 100px;
 }

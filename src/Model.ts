@@ -1,19 +1,14 @@
+export type Action<T> = { type: string; payload: T };
+
 export interface AvailableCar {
   name: string;
   img: string;
 }
-type Element = {
+export type Element = {
   name: string;
   price: number;
 };
 
-export interface PickedCarResponse {
-  name: string;
-  img: string;
-  engines: Element[];
-  drive: Element[];
-  fuel: Element[];
-}
 export interface PickedCar {
     name: string;
     img: string;
@@ -49,7 +44,4 @@ export interface State {
  
 
 
-// todo jak zmienić akcje w elementcah>
-export type Action<T> = { type: string; payload: T };
 
-// todo cost nie musi być w stanie może być zliczany na bierząco

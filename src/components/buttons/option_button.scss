@@ -2,7 +2,7 @@
 
 .option__button {
   background-color: $blacklike;
-  color: white;
+  color: $white;
   @include button;
   font-weight: 400;
   font-size: 1.2em;
@@ -16,7 +16,7 @@
 }
 
 .button__wrapper{
-  font-family: 'standard';
+  font-family: 'standard', serif;
   display: inline-flex;
   flex-direction: column;
   align-content: baseline;
