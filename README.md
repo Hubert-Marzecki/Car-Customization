@@ -26,6 +26,8 @@ To run this project, install it locally, open and use npm:
 ./jsonserver
 ```
 $ npm run json:server
+or 
+$ node node_modules/json-server/lib/cli/bin.js --watch jsonserver/db.json
 ```
 ./src
 ```
